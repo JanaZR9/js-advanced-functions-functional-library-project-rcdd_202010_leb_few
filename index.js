@@ -23,7 +23,18 @@ const fi = (function() {
         return newAr;
     },
 
-   
+    reduce: function(collection, callback, acc=0) {
+       if (acc===0) {
+				acc = collection[0]
+				collection = collection.slice(1)
+			}
+       const newAr=[];
+        for (let i=0; i<collection.length;i++)
+        {
+          acc = callback(acc, collection[i], collection)
+			}
+			return acc;
+    },
 
     functions: function() {
 
