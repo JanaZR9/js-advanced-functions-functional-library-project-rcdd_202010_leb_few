@@ -13,13 +13,17 @@ const fi = (function() {
         return collection;
     },
 
-    map: function() {
-
+    map: function(collection, callback) {
+       const newCollection = (collection instanceof Array) ? collection.slice() : Object.values(collection);
+       const newAr=[];
+        for (let i=0; i<newCollection.length;i++)
+        {
+          newAr.push(callback(newCollection[i]));
+        }
+        return newAr;
     },
 
-    reduce: function() {
-
-    },
+   
 
     functions: function() {
 
